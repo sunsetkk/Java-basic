@@ -17,3 +17,7 @@
 	Eclipse 19-12버전 이용
 
 	https://www.eclipse.org/downloads/packages/release/2019-12/r
+
+Perspective 는 Java로 바꿔준다
+
+
