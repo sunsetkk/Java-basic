@@ -1,0 +1,12 @@
+# Eclipse #
+.project
+.classpath
+.springBeans
+.settings/
+
+pom.properties
+MANIFEST.MF
+
+# Directories #
+/build/
+/bin/
