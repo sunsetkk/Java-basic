@@ -98,7 +98,7 @@ printf("키 : %fcm",170.24); ---> 키 : 170.24cm<br>
 - 되도록 선언부(메서드 상단)에 한꺼번에 선언한다.
 
 # 3. 입력 메서드
-`new Scanner(System.in)`
+`new Scanner(System.in)` <br>
 매번 반복해서 써주기엔 너무 길기 때문에 아래처럼 사용한다.
 ```java
 Scanner scan = new Scanner(System.in);
