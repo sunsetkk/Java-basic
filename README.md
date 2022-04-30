@@ -1,5 +1,5 @@
 # Java-basic
-본 문서는 _2022-04-28_ 에 작성되었습니다.
+
 
 # JDK 설치
 > Java 8 버전 이용<br>
@@ -31,6 +31,8 @@ Perspective 는 Java로 바꿔준다
 |Ctrl + N|New창<br>(클래스, 패키지, .. 등등 만드는 창)|
 |Ctrl + Alt + ↓(↑)|아래(위)쪽으로 한줄 복사|
 |Alt + ↓(↑)|아래(위)쪽으로 한줄 이동|
+|Ctrl + Shift + F|자동 정렬|
+|
 
 # 1. 출력 메서드
 `System.out`
@@ -177,6 +179,7 @@ A || B  &nbsp; : 두 조건식의 연산 결과중 하나라도 true면 true <br
 - 흐름을 여러가지로 나누기
 - 선택지를 주어줄 때
 - 특정한 상태 물어볼 때 (입력한게 5이니? 입력한 비밀번호가 qwer이니?)
+
 ### if문 <br>
 > if ~ else if ~ else <br>
 > 조건식 중 하나가 참이라면 내부 내용을 수행하고 세트를 탈출한다.(아래 내용은 하지 않는다.)<br>
@@ -200,6 +203,9 @@ else{
 ### switch문 <br>
 > switch ~ case ~ default <br>
 > 경우의 수가 변수에 담긴 값 등가 비교로 인해 나뉠 때 사용 <br>
+> 변수에 담긴 값에 따라 알맞은 case로 이동하고 문장을 실행한다.(진입점 선택)<br>
+> 하지만 그 밑에 case가 더 있다면 그 안에있는 문장들도 실행된다.<br>
+> 따라서 각 케이스들을 나누어 주려면 알맞게 break; 를 사용해야 한다.<br>
 
 ```java
 switch(변수){
@@ -214,10 +220,67 @@ default:
 	위의 값들이 아닐 때 수행
 }
 ```
+### 기타 제어 (break, continue) <br>
+`break` : 속해있는 switch문이나 반복문을 탈출한다. <br>
+`continue` : <br>
+
+### 누적 대입 연산자(복합 대입 연산자, 누적 연산자)<br>
+`+=` `-=` `/=` `*=` <br>
+```java
+int data = 10;
+data = data+5;
+
+data += 5;	//(data 공간에 5만큼 더해서 넣어라!)
+```
+
+#### 증감 연산자
+data += 1 &nbsp;&nbsp;&nbsp; -> data++; <br>
+data -= 1 &nbsp;&nbsp;&nbsp; -> data--; <br>
+
+### 전위형 <br>
+해당 줄부터 적용
+```java
+int data = 10;
+System.out.println(++data);	//11
+```
+
+### 후위형 <br>
+다음 줄 부터 적용
+```java
+int data = 10;
+System.out.println(data++);	//10
+System.out.println(data);	//11
+```
 
 ## 반복문 <br>
-### while, do ~ while <br>
-### for <br>
+- 특정한 코드나 행위를 반복해야 할 때 사용하는 문장
+
+
+### while문 <br>
+> 조건식 검사 -> 참이라면 내부수행, 거짓이면 탈출 <br>
+> 	-> 조건식 재검사 -> 참이라면 내부수행, 거짓이면 탈출 <br>
+> 	-> 조건식 재검사 ...
+
+```java
+while(조건식) {
+	조건식이 참일동안 반복할 문장
+}
+```
+
+### do ~ while문 <br>
+> while문과 동일하지만 처음 한번은 무조건 실행한다.<br>
+> 내부수행 -> 조건식검사 -> 참이라면 내부수행, 거짓이면 탈출 <br>
+> 	-> 조건식 재검사 -> 참이라면 내부수행, 거짓이면 탈출 <br>
+> 	-> 조건식 재검사 ...
+
+```java
+do {
+	조건식이 참일동안 반복할 문장
+} while(조건식);
+```
+
+### for문 <br>
+> for
 
 
 
