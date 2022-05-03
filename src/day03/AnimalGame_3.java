@@ -14,7 +14,7 @@ public class AnimalGame_3 {
 		//2. 고양이
 		//3. 돼지
 		while(true) {
-			System.out.print("플레이하실 동물을 고르세요.\n1. 강아지ᕙ༼◕ ᴥ ◕༽ᕗ\n2. 고양이(ﾉΦωΦ)ﾉ\n3. 돼지ƪ(‾(••)‾”)ʃ ");
+			System.out.println("플레이하실 동물을 고르세요.\n1. 강아지ᕙ༼◕ ᴥ ◕༽ᕗ\n2. 고양이(ﾉΦωΦ)ﾉ\n3. 돼지ƪ(‾(••)‾”)ʃ ");
 			int choice = scan.nextInt();
 			
 			int foodCnt = 0;
@@ -57,6 +57,11 @@ public class AnimalGame_3 {
 				//장점 : 메모리
 				//단점 : 가독성
 				choice = scan.nextInt();
+				if(choice == 5) {
+					//나가기
+					System.out.println("다음에 또 오세요 ~!~");
+					break;
+				}
 				switch(choice) {
 				case 1:
 					//먹기
@@ -71,7 +76,22 @@ public class AnimalGame_3 {
 					break;
 				case 2:
 					//잠자기
-					
+					System.out.print("Zzz.");
+					for (int i = 0; i < 3; i++) {
+						System.out.print(".");
+						
+						//Alt + Shift + Z > ↓ > Enter
+						try {
+//							Thread.sleep(1000) : 1000밀리초(1초) 잠시 멈추기
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					hp++;
+					System.out.println();
+					System.out.println("체력 회복!\n현재 체력 : "+hp);
 					break;
 				case 3:
 					//산책하기
@@ -82,15 +102,35 @@ public class AnimalGame_3 {
 					hp--;
 					//랜덤 문제 출제
 					Random r = new Random();
-					
+					String quiz1 = "다음 중 sunset의 뜻은 ?\n1. 동틀녘\n2. 해돋이\n3. 해질녘\n4. 일출";
+					String quiz2 = "다음 중 컬렉션 프레임워크에 속하지 않는것은?\n1. ArrayList\n2. HashSet\n3. HttpServlet\n4. HashMap";
+//					r.nextInt(n) : 0~ n-1 까지중 랜덤한 숫자
+//					r.nextInt(2) : 0,1 두개중에 랜덤한 숫자
+					int randNum = r.nextInt(2);
+					if(randNum == 0) {
+						System.out.println(quiz1);
+					} else if(randNum == 1) {
+						System.out.println(quiz2);
+					}
+					int answer = scan.nextInt();
+					if(answer != 3) {
+						System.out.println("오답이에요...");
+						hp--;
+					}else {
+						System.out.println("정답이에요~!");
+						foodCnt += 2;
+					}
 					break;
 				case 4:
 					//내정보 보기
+					System.out.println("§ⓐⓝⓘⓜⓐⓛ_"+name+"_ⓐⓝⓘⓜⓐⓛ§");
+					System.out.println("HP : "+hp);
+					System.out.println("먹이 : "+foodCnt+"개\n");
 					break;
-				case 5:
-					//나가기
+				}
+				if(hp == 0) {
+					System.out.println(name + "(이)는 더이상 우리와 함께할 수 없어요...");
 					break;
-				
 				}
 			}
 		}
