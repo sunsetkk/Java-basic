@@ -33,6 +33,7 @@ Perspective 는 Java로 바꿔준다
 |Alt + ↓(↑)|아래(위)쪽으로 한줄 이동|
 |Ctrl + Shift + F|자동 정렬|
 |Ctrl + M|현재 창 최대크기로|
+|Ctrl + 클릭|선언된 곳으로 이동|
 
 # 1. 출력 메서드
 `System.out`
