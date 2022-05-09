@@ -32,36 +32,26 @@ public class StrTest_1 {
 		System.out.println("문자열의 길이 : "+len);
 		
 //		"문자열1".replace("문자열2","문자열3"); : "문자열1" 에서 "문자열2" 를 찾아 "문자열3"으로 반환(String 반환)
-		msg.replace("Hello","Bye"); // "Bye Java!"
+//											원본("문자열1")은 그대로
+		String newMsg = msg.replace("Hello","Bye"); // "Bye Java!"
+		System.out.println("원본 : " + msg);
+		System.out.println("바뀐 값 : " + newMsg);
+		
+//		"문자열".subString(n); : "문자열" 을 부터 끝까지 잘라서 돌려주기(String 반환)
+		String subMsg1 = msg.substring(6); // "Java!"
+		System.out.println("6번째 부터 끝까지 : " + subMsg1);
+		
+//		"문자열".substring(n, m); : "문자열" 을 n부터 m 이전까지 잘라서 돌려주기(String 반환)
+		String subMsg2 = msg.substring(6, 8); // "Ja"
+		System.out.println("6번째 부터 8 이전까지 : " + subMsg2);
+		
+//		"문자열".trim(); : "문자열" 양 옆에 있는 공백들을 제거(String 반환)
+		System.out.println("           Java                  ".trim());
+		
+//		실제 원본값 바꾸기
+		msg = msg.replace("Hello", "Bye");
 		System.out.println(msg);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+
 	}
 }
