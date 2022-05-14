@@ -4,6 +4,7 @@ public class Car {
 	String brand;
 	String color;
 	int price;
+	static int wheel = 4;
 	
 	//생성자 오버로딩
 	public Car() {}
@@ -23,11 +24,17 @@ public class Car {
 		this.price = price;
 	}
 
-
+	static void showWheelCnt() {
+		String name = "금호";
+		System.out.println(wheel);
+		System.out.println(name);
+	}
+	
+	
 	void engineStart() {
-		System.out.println(brand + "시동 켜기");
+		System.out.println(brand + " 열쇠로 시동 켜기");
 	}
 	void engineStop() {
-		System.out.println(brand + "시동 끄기");
+		System.out.println(brand + " 열쇠로 시동 끄기");
 	}
 }
