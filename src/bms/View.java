@@ -6,14 +6,24 @@ import java.util.Scanner;
 public class View {
 	void joinView() {
 		Scanner scan = new Scanner(System.in);
+		BankManager bm = new BankManager();
 		
 		System.out.println("1. 국민은행\n2. 신한은행\n3. 우리은행");
 		int bankChoice = scan.nextInt();
 		
-		System.out.println("이름 : ");
+		System.out.print("이름 : ");
 		String name = scan.next();
-		System.out.println("비밀번호 : ");
+		System.out.print("비밀번호 : ");
 		String pw = scan.next();
+		
+		String account = bm.join(bankChoice, name, pw);
+		
+		if(account != null) {
+			System.out.println(name + "님 가입을 환영합니다~");
+			System.out.println("계좌번호 : "+ account);
+		}else {
+			System.out.println("가입 실패.");
+		}
 		
 	}
 	void loginView() {
