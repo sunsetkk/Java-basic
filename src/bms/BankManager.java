@@ -6,7 +6,7 @@ public class BankManager {
 	Bank[][] arUser = new Bank[3][1000];
 	int[] arCnt = {0,0,0};
 	
-	void join(int bankChoice, String name, String pw) {
+	String join(int bankChoice, String name, String pw) {
 		Random r = new Random();
 		
 		//10000~99999
@@ -14,7 +14,7 @@ public class BankManager {
 		String account = r.nextInt(90000) + 10000 + "";
 		
 		for (int i = 0; i < arUser.length; i++) {
-			for (int j = 0; j < arUser[i].length; j++) {
+			for (int j = 0; j < arCnt[i]; j++) {
 				if(arUser[i][j].account.equals(account)) {
 					account = r.nextInt(90000) + 10000 + "";
 					i = -1;
@@ -24,6 +24,15 @@ public class BankManager {
 		}
 		
 //		중복체크 통과
+		
+//		Bank[] makers = {
+//				new Kookmin(account, pw, name),
+//				new Shinhan(account, pw, name),
+//				new Woori(account, pw, name)
+//		};
+//		arUser[bankChoice-1][arCnt[bankChoice-1]] = makers[bankChoice-1];
+//		arCnt[bankChoice-1]++;
+		
 		if(bankChoice == 1) {
 			//국민은행
 			arUser[0][arCnt[0]] = new Kookmin(account, pw, name);
@@ -38,6 +47,7 @@ public class BankManager {
 			arCnt[2]++;
 		}
 		
+		return account;
 	}
 	void login() {
 		
