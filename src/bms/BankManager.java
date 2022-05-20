@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class BankManager {
 	//3개의 은행 / 1000명 고객
-	Bank[][] arUser = new Bank[3][1000];
+	static Bank[][] arUser = new Bank[3][1000];
 	//은행별 가입자 수 카운트
-	int[] arCnt = {0,0,0};
+	static int[] arCnt = {0,0,0};
 	
 	//회원가입 시 은행, 이름, 비밀번호 받고 return account(계좌번호)
 	String join(int bankChoice, String name, String pw) {
@@ -58,7 +58,17 @@ public class BankManager {
 		
 		return account;
 	}
-	void login() {
-		
+	Bank login(String account, String pw) {
+		for (int i = 0; i < arCnt.length; i++) {
+			for (int j = 0; j < arCnt[i]; j++) {
+				if(arUser[i][j].account.equals(account)) {
+					if(arUser[i][j].pw.equals(pw)) {
+						//로그인 성공
+						return arUser[i][j];
+					}
+				}
+			}
+		}
+		return null;
 	}
 }

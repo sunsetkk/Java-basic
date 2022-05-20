@@ -6,8 +6,6 @@ public class Bank {
 	String name;
 	int balance;
 	
-	public Bank() {}
-
 	public Bank(String account, String pw, String name) {
 		this.account = account;
 		this.pw = pw;
