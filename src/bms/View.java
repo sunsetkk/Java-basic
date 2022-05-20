@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class View {
 	void joinView() {
 		Scanner scan = new Scanner(System.in);
+		//View딴은 사용자가 보는 화면이기 때문에
+		//처리 부분은 BankManager 클래스 안에서 처리
 		BankManager bm = new BankManager();
 		
 		System.out.println("1. 국민은행\n2. 신한은행\n3. 우리은행");

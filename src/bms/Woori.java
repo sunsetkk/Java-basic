@@ -3,8 +3,6 @@ package bms;
 //잔액 조회시 잔액 절반
 public class Woori extends Bank{
 
-	public Woori() {}
-
 	public Woori(String account, String pw, String name) {
 		super(account, pw, name);
 	}
