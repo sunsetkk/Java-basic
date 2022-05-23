@@ -15,6 +15,7 @@ public class AccessTest {
 	public void setData3(int data3) {
 		this.data3 = data3;
 	}
+
 	
 	
 }
