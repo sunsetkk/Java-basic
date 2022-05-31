@@ -1,0 +1,15 @@
+package exception;
+
+public class ExceptionTest {
+	public static void main(String[] args) {
+		try {
+			System.out.println(10/3);
+//			System.out.println(10/0);
+			System.out.println(10/2);
+		} catch(ArithmeticException ae) {
+			System.out.println("0으로는 나눌 수 없습니다.");
+		}finally {
+			System.out.println("필수로 수행해야 하는 문장");
+		}
+	}
+}
