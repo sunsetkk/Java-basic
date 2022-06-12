@@ -17,6 +17,7 @@ public class ArListTest3 {
 }
 
 class User{
+	int usernum;
 	String userid;
 	String username;
 	
@@ -25,6 +26,14 @@ class User{
 		this.username = username;
 	}
 	
+	public User(int usernum, String userid, String username) {
+		this.usernum = usernum;
+		this.userid = userid;
+		this.username = username;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return userid + " / " + username;
@@ -41,5 +50,10 @@ class User{
 			return target.userid.equals(userid);
 		}
 		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return usernum;
 	}
 }
