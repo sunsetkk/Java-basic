@@ -8,15 +8,18 @@ public class WriterTest {
 	public static void main(String[] args) {
 		try {
 //			FileWriter fw = new FileWriter("C:\\asdasfkejfk\\test.txt");
-			FileWriter fw = new FileWriter("test.txt");
+//			FileWriter fw = new FileWriter("test.txt");
+			FileWriter fw = new FileWriter("test.txt", true);
 			System.out.println("파일 쓰기 준비 완료!");
 			
 			BufferedWriter bw = new BufferedWriter(fw);
 			
 			System.out.println("버퍼 준비 완료 !");
 			
-			bw.write("Hello Java!");
-			bw.write("자바의 마지막 파일입출력~");
+//			bw.write("Hello Java!\r\n");
+//			bw.write("자바의 마지막 파일입출력~");
+			bw.write("\r\nBye Java!");
+			
 //			bw.flush();
 			bw.close();
 			
