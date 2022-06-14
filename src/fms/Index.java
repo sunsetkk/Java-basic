@@ -19,8 +19,6 @@ public class Index {
 			
 			String newData = "";
 			String delData = "";
-			String originData = "";
-			String modifyData = "";
 			
 			switch (choice) {
 			case 1:
@@ -38,12 +36,12 @@ public class Index {
 			case 2:
 				//내용수정
 				System.out.println("수정할 내용 : ");
-				originData = scan.next();
+				delData = scan.next();
 				System.out.println("새로운 내용 :");
-				modifyData = scan.next();
+				newData = scan.next();
 				
-				if(fm.modify(originData, modifyData)) {
-					System.out.println("내용 수정 성공 !");
+				if(fm.modify(delData, newData)) {
+					System.out.println("내용 수정 성공 !\n"+ delData+" -> " + newData);
 				}else {
 					System.out.println("내용 수정 실패...");
 				}

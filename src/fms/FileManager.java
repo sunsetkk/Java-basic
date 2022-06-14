@@ -76,7 +76,7 @@ public class FileManager {
 		return flag;
 	}
 	
-	boolean modify(String originData, String modifyData) {
+	boolean modify(String delData, String newData) {
 		String result = "";
 		boolean flag = false;
 		
@@ -88,10 +88,10 @@ public class FileManager {
 					break;
 				}
 				
-				if(line.equals(originData)) {
-					result += modifyData+"\r\n";
+				if(line.equals(delData)) {
+					result += newData+"\r\n";
 					flag = true;
-				}else if(!line.equals(originData)) {
+				}else {
 					result += line+"\r\n";
 				}
 			}
