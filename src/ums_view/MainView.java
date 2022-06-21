@@ -1,5 +1,6 @@
 package ums_view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import ums_dao.ProductDAO;
@@ -76,6 +77,26 @@ public class MainView {
 				break;
 			case 5:
 				//상품 검색
+				System.out.println("검색어를 입력하세요 : ");
+				scan = new Scanner(System.in);
+				String keyword = scan.nextLine();
+				ArrayList<String> result = pdao.search(keyword);
+//				"지우개"로 검색된 결과
+				System.out.println("\""+keyword+"\"로 검색된 결과");
+				if(result.size()==0) {
+					System.out.println("검색된 결과가 없습니다.");
+				}else {
+					for(String line : result) {
+						String[] datas = line.split("\t");
+						System.out.printf("%s. %s - %s원(남은수량 : %s개)\n", 
+								datas[0],datas[1],datas[2],datas[3]);
+					}
+				}
+				System.out.println("==========================");
+				System.out.print("자세히 볼 상품번호(나가시려면 0번) : ");
+				prodnum = scan.nextInt();
+				new ProductInfoView(prodnum);
+				
 				break;
 			case 6:
 				//내 정보 수정

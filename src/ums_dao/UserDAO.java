@@ -36,9 +36,27 @@ public class UserDAO {
 		return rs.size()==0;
 	}
 
-
 	public boolean modifyUser(String userid, int col, String newData) {
-		return conn.update(userid, col, newData);
+		boolean check = conn.update(userid, col, newData);
+		if(check) {
+			HashSet<String> rs = conn.select(0, userid);
+			for(String line : rs) {
+				String[] datas = line.split("\t");
+				UserDTO loginUser = new UserDTO(datas);
+				Session.set("loginUser", loginUser);
+			}
+		}
+		return check;
+	}
+
+	public boolean leaveId(String userid) {
+		ProductDAO pdao = new ProductDAO();
+		
+		boolean check = conn.delete(userid);
+		if(check) {
+			Session.set("loginUser", null);
+		}
+		return check;
 	}
 
 

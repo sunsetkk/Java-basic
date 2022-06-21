@@ -2,6 +2,7 @@ package ums_view;
 
 import java.util.Scanner;
 
+import ums_dao.ProductDAO;
 import ums_dao.Session;
 import ums_dao.UserDAO;
 import ums_dto.UserDTO;
@@ -10,6 +11,8 @@ public class MyInfoView {
 	public MyInfoView() {
 		Scanner scan = new Scanner(System.in);
 		UserDAO udao = new UserDAO();
+		ProductDAO pdao = new ProductDAO();
+		
 		UserDTO loginUser = (UserDTO)Session.get("loginUser");
 		System.out.printf("====== %s님의 회원정보 ======\n아이디 : %s\n비밀번호 : %s\n핸드폰 번호 : %s\n주소 : %s\n",
 				loginUser.username, loginUser.userid, loginUser.userpw, loginUser.userphone, loginUser.useraddr);
@@ -20,6 +23,18 @@ public class MyInfoView {
 			System.out.println("메인으로 돌아갑니다.");
 		}else if(choice == 5) {
 			//회원탈퇴
+			System.out.print("비밀번호 재입력 : ");
+			String userpw = scan.next();
+			if(loginUser.userpw.equals(userpw)) { //비밀번호 확인
+				if(pdao.removeAll(loginUser.userid)) {
+					if(udao.leaveId(loginUser.userid)) {
+						System.out.println("그동안 이용해 주셔서 감사합니다...");
+					}
+				}
+			}else {
+				System.out.println("비밀번호 오류 / 다음에 다시 시도해주세요.");
+			}
+			
 			
 		}else {
 			//정보수정
